@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 title: Observability
 description: Use the built-in dev-time trace server in the WSO2 Integrator IDE to observe LLM and tool calls as your agent runs.
 keywords: [wso2 integrator, observability, tracing, ai agents, dev-time trace, traces]
@@ -214,9 +214,3 @@ Three changes are required:
 When you run the integration, spans flow to the configured collector instead of the IDE trace viewer. To point at a non-local collector or tune sampling, add a `[ballerinax.jaeger]` section to `Config.toml` with provider-specific keys. See the [Ballerina Jaeger configuration guide](https://ballerina.io/learn/supported-observability-tools-and-platforms/jaeger/) for the full list of configurables.
 
 To switch back to the dev-time viewer, change the import to `ballerinax/idetraceprovider as _;` and set `tracingProvider = "idetraceprovider"` in `Config.toml`.
-
-## What's next
-
-- **[Evaluations](evaluations/overview.md)** — turn observed behavior into automated regression checks.
-- **[Tools](tools.md)** — clear tool descriptions are the biggest lever on what shows up in traces.
-- **[Memory](memory.md)** — every turn's memory contents appear in the LLM call spans.
