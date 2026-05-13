@@ -148,7 +148,8 @@ Roles help manage authorization policies and permissions for agents.
 3. Provide the following details:
 
    - **Role Name**: `AgentRole`
-   - **Role Audience**: `Organization`
+   - **Role Audience**: `Application`
+   - **Assigned Application**: Select the created application
 
 4. Click **Next**.
 

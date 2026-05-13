@@ -21,7 +21,7 @@ Authentication and authorization are handled separately:
   - OAuth scopes
   - OAuth client credentials
 
-This separation enables fine-grained and secure authorization management.
+This separation enables secure and fine-grained authorization management.
 
 ## Why access control policies are important
 
@@ -46,10 +46,9 @@ Access to a protected tool is granted only when:
 
 ### Configure MCP tool
 
-1. Click on the **MCP Toolkit** to open the configuration form.
+1. Click on the attached MCP Toolkit in the agent. to open the configuration form.
 
-
-2. In the **Auth Configuration Panel**, select the authentication type as **AgentIdAuthConfig** and update the values obtained from the authorization server:
+2. In the **Auth** Configuration Panel, select the authentication type as **AgentIdAuthConfig** and update the values obtained from the authorization server:
 
      - **baseAuthUrl**  
         The base URL of the authorization server. This is used to initiate OAuth2 flows such as token generation and authorization.  
@@ -78,19 +77,50 @@ Access to a protected tool is granted only when:
      - **secureSocket**  
          Configuration for SSL/TLS settings when communicating with secure endpoints.
 
+   ![Add auth configuration](/img/genai/develop/agents/34-auth-configuration.png)     
+
 3. In the same form, go to **Tools to Include** and select **Selected**.
 
-4. Navigate to **Available Tools**, select the required tools, and click on the **Secure Access (Shield) icon** of the specific tool to add scopes.
+4. Navigate to **Available Tools**, select the required tools, and click on the **Secure Access (Shield) icon** of the specific tool and type the scopes.
 
+![Add scopes](/img/genai/develop/agents/35-add-scopes.png)  
 
 ### Configure Non-MCP tool
 
 1. Click on the **3-dot menu** and then click **Edit**.  
    
+   ![Edit tool](/img/genai/develop/agents/32-edit-tool.png)
 
 2. Go to the **Advanced Configuration** and click **Expand**.
 
+   ![Advanced configuration](/img/genai/develop/agents/33-tool-advanced-config.png)
+
 3. Fill the form with the values obtained from the authorization server.
+      - **baseAuthUrl**  
+        The base URL of the authorization server. This is used to initiate OAuth2 flows such as token generation and authorization.  
+         Eg: `https://api.asgardeo.io/t/{tenant}/oauth2`
+
+     - **clientId**  
+        The unique identifier of the application registered in the authorization server. This is used to identify the agent during authentication.
+
+     - **clientSecret**  
+        The secret associated with the client ID. It is used to authenticate the client when requesting tokens.  
+        Required only for **confidential clients** (not needed if PKCE is used with public clients).
+
+     - **redirectUri**  
+        The callback URL where the authorization server redirects after successful authentication. This must match the URL configured in the application.
+
+     - **isPkceEnabled**  
+        Indicates whether **PKCE (Proof Key for Code Exchange)** is enabled:
+
+         - **true**: Recommended for public clients (more secure); set this to `true` if PKCE is enabled in the Asgardeo application
+         - **false**: Used with client secret (confidential clients)
+
+     - **scopes**  
+         Required scope to access the tool
+
+     - **secureSocket**  
+         Configuration for SSL/TLS settings when communicating with secure endpoints.
 
 4. Click **Save**.
 

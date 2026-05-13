@@ -1784,7 +1784,7 @@ const sidebars: SidebarsConfig = {
                     'genai/develop/agents/identity-and-access-management/setup-authorization-server',
                     'genai/develop/agents/identity-and-access-management/define-agent-identities',
                     'genai/develop/agents/identity-and-access-management/define-access-control-policies',
-                    'genai/develop/agents/identity-and-access-management/Test-agent-access-control-policies',
+                    'genai/develop/agents/identity-and-access-management/test-agent-access-control-policies',
                   ],
                 },
                 'genai/develop/agents/observability',
