@@ -1774,7 +1774,7 @@ const sidebars: SidebarsConfig = {
                 'genai/develop/agents/memory',
                 {
                   type: 'category',
-                  label: 'Identity and Access Control',
+                  label: 'Identity & Access Management',
                   link: {
                     type: 'doc',
                     id: 'genai/develop/agents/identity-and-access-management/overview'
@@ -1782,9 +1782,9 @@ const sidebars: SidebarsConfig = {
                   collapsed: true,
                   items: [
                     'genai/develop/agents/identity-and-access-management/setup-authorization-server',
-                    'genai/develop/agents/identity-and-access-management/define-agent-identities',
+                    'genai/develop/agents/identity-and-access-management/define-agent-identity',
                     'genai/develop/agents/identity-and-access-management/define-access-control-policies',
-                    'genai/develop/agents/identity-and-access-management/test-agent-access-control-policies',
+                    'genai/develop/agents/identity-and-access-management/test-identity-and-access-management',
                   ],
                 },
                 'genai/develop/agents/observability',

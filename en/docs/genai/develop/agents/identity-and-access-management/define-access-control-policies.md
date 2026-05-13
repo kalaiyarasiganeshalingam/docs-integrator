@@ -1,8 +1,8 @@
 ---
 sidebar_position: 4
 title: Defining Access Control Policies
-description: Create AI agent evaluations in WSO2 Integrator. Fill the AI Evaluation form, pick an evalset to score against, and refine the checks in the visual designer.
-keywords: [wso2 integrator, ai agent, evaluation, visual designer, llm-as-judge]
+description: Learn how to configure OAuth 2.0 scopes and access control policies for AI agent tools in WSO2 Integrator.
+keywords: [wso2 integrator, ai agent, access control, oauth2, scopes, authorization, mcp tool, client credentials]
 ---
 
 # Defining Access Control Policies
@@ -46,7 +46,7 @@ Access to a protected tool is granted only when:
 
 ### Configure MCP tool
 
-1. Click on the attached MCP Toolkit in the agent. to open the configuration form.
+1. Click on the attached MCP Toolkit in the agent to open the configuration form.
 
 2. In the **Auth** Configuration Panel, select the authentication type as **AgentIdAuthConfig** and update the values obtained from the authorization server:
 
@@ -117,7 +117,7 @@ Access to a protected tool is granted only when:
          - **false**: Used with client secret (confidential clients)
 
      - **scopes**  
-         Required scope to access the tool
+         A list of permissions required to access the tool. These define what resources the agent can access when generating the access token.
 
      - **secureSocket**  
          Configuration for SSL/TLS settings when communicating with secure endpoints.
@@ -127,4 +127,4 @@ Access to a protected tool is granted only when:
 
 ## What's next
 
-- [Test Agent Access Control Policies](test-agent-access-control-policies.md) - Validate and test authentication and authorization flows for secured agents and tools.
+- [Test Identity & Access Management](test-identity-and-access-management.md) - Validate and test authentication and authorization flows for secured agents and tools.

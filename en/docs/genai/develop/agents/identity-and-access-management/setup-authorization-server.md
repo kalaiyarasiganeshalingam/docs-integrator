@@ -22,10 +22,10 @@ Before you begin, ensure you have an [Asgardeo account](https://wso2.com/asgarde
 3. Provide the following details:
 
    - **Name**: A descriptive name for your AI agent.  
-     Example: `Math Assistant Agent`
+     Example: `WeatherForecastAgent`
 
    - **Description** *(optional)*: A short description of the agent’s purpose.  
-     Example: `An AI agent that invokes protected MCP tools to answer math-related questions.`
+     Example: `An AI agent that invokes protected MCP tools to provide weather forecasts and climate-related information`
 
 4. Click **Create**.
 
@@ -55,19 +55,17 @@ Resources define the APIs or MCP servers that agents are allowed to access.
 4. Provide the required details:
 
    - **Identifier**: `mcp://localhost:9090`
-   - **Display Name**: `Math Operations`
+   - **Display Name**: `Weather Service`
 
 5. Click **Next**.
 
-6.  Add scopes for resource authorization.
-
-   After filling the following fields, click **+ Add Scope**.
+6. Add scopes for resource authorization. Fill in the following fields and click **+ Add Scope**.
 
    Example:
 
-   - **Scope**: `add`
-   - **Display Name**: `add`
-   - **Description** *(optional)*: ``
+   - **Scope**: `read_current_weather`
+   - **Display Name**: `read_current_weather`
+   - **Description** *(optional)*: `Read current weather data`
 
 7. Click **Create**.
 
@@ -165,8 +163,6 @@ Roles help manage authorization policies and permissions for agents.
 
 After completing these steps, your Authorization Server configuration is ready, and you can proceed with securing agents, tools, and APIs in WSO2 Integrator.
 
-After completing these steps, your Authorization Server configuration is ready, and you can proceed with securing agents, tools, and APIs in WSO2 Integrator.
-
 Once the setup is complete, you can obtain the following details:
 
 - **Agent ID**
@@ -174,10 +170,10 @@ Once the setup is complete, you can obtain the following details:
 - **Client ID**
 - **Client Secret** *(available when the application is configured as a non-public client)*
 - **Redirect URI**
-- **Base URL** *(To obtain the base URL, open the created application and navigate to the **Info** tab.)
+- **Base URL** *(To obtain the base URL, open the created application and navigate to the **Info** tab.)*
 
 ## What's next
 
-- [Define Agent Identities](define-agent-identities.md) - Create and manage identities for autonomous agents.
+- [Define Agent Identity](define-agent-identity.md) - Create and manage identities for autonomous agents.
 - [Define Access Control Policies](define-access-control-policies.md) - Configure scopes, permissions, and authorization policies for agent access.
-- [Test Agent Access Control Policies](test-agent-access-control-policies.md) - Validate and test authentication and authorization flows for secured agents and tools.
+- [Test Identity & Access Management](test-identity-and-access-management.md) - Validate and test authentication and authorization flows for secured agents and tools.

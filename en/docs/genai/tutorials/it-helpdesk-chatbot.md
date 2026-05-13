@@ -106,6 +106,8 @@ final KbArticle[] & readonly kbArticles = [
     }
 ];
 ```
+</TabItem>
+</Tabs>
 ### Step 3: Create the AI agent
 
 Create the AI agent named `itHelpDeskAgent` by following the instructions in [Creating an Agent](genai/develop/agents/creating-an-agent.md).
