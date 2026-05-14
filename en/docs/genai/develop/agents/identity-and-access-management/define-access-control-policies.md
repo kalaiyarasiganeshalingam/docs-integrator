@@ -100,28 +100,27 @@ Access to a protected tool is granted only when:
         The base URL of the authorization server. This is used to initiate OAuth2 flows such as token generation and authorization.  
          Eg: `https://api.asgardeo.io/t/{tenant}/oauth2`
 
-     - **clientId**  
+      - **clientId**  
         The unique identifier of the application registered in the authorization server. This is used to identify the agent during authentication.
 
-     - **clientSecret**  
+      - **clientSecret**  
         The secret associated with the client ID. It is used to authenticate the client when requesting tokens.  
         Required only for **confidential clients** (not needed if PKCE is used with public clients).
 
-     - **redirectUri**  
+      - **redirectUri**  
         The callback URL where the authorization server redirects after successful authentication. This must match the URL configured in the application.
 
-     - **isPkceEnabled**  
+      - **isPkceEnabled**  
         Indicates whether **PKCE (Proof Key for Code Exchange)** is enabled:
 
          - **true**: Recommended for public clients (more secure); set this to `true` if PKCE is enabled in the Asgardeo application
          - **false**: Used with client secret (confidential clients)
 
-     - **scopes**  
+      - **scopes**  
          A list of permissions required to access the tool. These define what resources the agent can access when generating the access token.
 
-     - **secureSocket**  
+      - **secureSocket**  
          Configuration for SSL/TLS settings when communicating with secure endpoints.
-
 4. Click **Save**.
 
 
