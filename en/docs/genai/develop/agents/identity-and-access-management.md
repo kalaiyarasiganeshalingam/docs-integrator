@@ -73,7 +73,7 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 
 3. In the same form, go to **Tools to Include** and select **Selected**.
 
-4. Navigate to **Available Tools**, select the required tools, and click on the **Secure Access (Shield) icon** of the specific tool and type the scopes.
+4. Navigate to **Available Tools**, select the required tools, and click on the **Secure Access (Shield)** icon of the specific tool and add the scopes.
 
 ![Add scopes](/img/genai/develop/agents/35-add-scopes.png)  
 
