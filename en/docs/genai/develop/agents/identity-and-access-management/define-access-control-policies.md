@@ -44,7 +44,7 @@ Access to a protected tool is granted only when:
 
 ## Configure tool authorization
 
-### Configure MCP tool
+### Configure MCP tool authorization
 
 1. Click on the attached MCP Toolkit in the agent to open the configuration form.
 
