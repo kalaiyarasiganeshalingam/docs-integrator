@@ -29,6 +29,8 @@ Agents can securely authenticate to MCP servers, cloud resources, endpoints, and
 
 To configure agent identity, obtain the following details from your identity provider:
 
+If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/), see the [Register and manage agents](https://is.docs.wso2.com/en/next/guides/agentic-ai/ai-agents/register-and-manage-agents/) guide to configure agents and obtain the above values.
+
 | Field | Description |
 |---|---|
 | **Agent ID** | Unique identifier assigned to the agent for authentication and identification purposes. |
@@ -37,8 +39,6 @@ To configure agent identity, obtain the following details from your identity pro
 | **Callback URL** | Redirect URL used by the authorization server to return authorization responses after authentication. |
 | **Base URL** | Base endpoint URL of the authorization server or identity provider used for authentication and token operations. |
 | **Client Secret** | Secret associated with the OAuth client application. This field is optional depending on the authorization flow and provider configuration. |
-
-If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/), see the [Register and manage agents](https://is.docs.wso2.com/en/next/guides/agentic-ai/ai-agents/register-and-manage-agents/) guide to configure agents and obtain the above values.
 
 ## Add credentials to agents
 
@@ -50,9 +50,9 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 
 ![Credential input fields showing Agent ID and Agent Secret fields.](/img/genai/develop/agents/31-add-credential.png)
 
-## Configure tool
+## Configure tools
 
-### Configure MCP tool
+### Configure auth for an MCP tool
 
 1. Click on the attached MCP Toolkit in the agent to open the configuration form.
 
@@ -60,16 +60,15 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 
 ![Add auth configuration](/img/genai/develop/agents/34-auth-configuration.png)  
 
-
-| Field | Description | Required |
+| Field | Required | Description |
 |---|---|---|
-| **baseAuthUrl** | The base URL of the authorization server. This is used to initiate OAuth 2.0 flows such as token generation and authorization.<br/><br/>Example: `https://api.asgardeo.io/t/{tenant}/oauth2` | Yes |
-| **clientId** | The unique identifier of the application registered in the authorization server. This is used to identify the agent during authentication. | Yes |
-| **clientSecret** | The secret associated with the client ID. It is used to authenticate the client when requesting tokens.<br/><br/>Required only for confidential clients and not needed when PKCE is used with public clients. | No |
-| **redirectUri** | The callback URL to which the authorization server redirects after successful authentication. This must match the URL configured in the application. | Yes |
-| **isPkceEnabled** | Indicates whether PKCE (Proof Key for Code Exchange) is enabled.<br/><br/>- `true`: Recommended for public clients and should be enabled if PKCE is configured in the Asgardeo application.<br/>- `false`: Used with confidential clients that use a client secret. | Yes |
-| **scopes** | A list of permissions requested by the agent. These define the resources the agent can access.<br/><br/>If the tool does not define specific scopes, these scopes are used when generating the access token. | Yes |
-| **secureSocket** | Configuration for SSL/TLS settings when communicating with secure endpoints. | No |
+| **baseAuthUrl** | Yes | The base URL of the authorization server. This is used to initiate OAuth 2.0 flows such as token generation and authorization.<br/><br/>Example: `https://api.asgardeo.io/t/{tenant}/oauth2` |
+| **clientId** | Yes | The unique identifier of the application registered in the authorization server. This is used to identify the agent during authentication. |
+| **clientSecret** | No | The secret associated with the client ID. It is used to authenticate the client when requesting tokens.<br/><br/>Required only for confidential clients and not needed when PKCE is used with public clients. |
+| **redirectUri** | Yes | The callback URL to which the authorization server redirects after successful authentication. This must match the URL configured in the application. |
+| **isPkceEnabled** | Yes | Indicates whether PKCE (Proof Key for Code Exchange) is enabled.<br/><br/>- `true`: Recommended for public clients and should be enabled if PKCE is configured in the Asgardeo application.<br/>- `false`: Used with confidential clients that use a client secret. |
+| **scopes** | Yes | A list of permissions requested by the agent. These define the resources the agent can access.<br/><br/>If the tool does not define specific scopes, these scopes are used when generating the access token. |
+| **secureSocket** | No | Configuration for SSL/TLS settings when communicating with secure endpoints. |
 
 3. In the same form, go to **Tools to Include** and select **Selected**.
 
@@ -77,7 +76,7 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 
 ![Add scopes](/img/genai/develop/agents/35-add-scopes.png)  
 
-### Configure Non-MCP tool
+### Configure auth for Non-MCP tool
 
 1. Click on the **3-dot menu** and then click **Edit**.  
    
@@ -87,15 +86,15 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 
 ![Advanced configuration](/img/genai/develop/agents/33-tool-advanced-config.png)
 
-| Field | Description | Required |
+| Field | Required | Description |
 |---|---|---|
-| **baseAuthUrl** | The base URL of the authorization server. This is used to initiate OAuth 2.0 flows such as token generation and authorization.<br/><br/>Example: `https://api.asgardeo.io/t/{tenant}/oauth2` | Yes |
-| **clientId** | The unique identifier of the application registered in the authorization server. This is used to identify the agent during authentication. | Yes |
-| **clientSecret** | The secret associated with the client ID. It is used to authenticate the client when requesting tokens.<br/><br/>Required only for confidential clients and not needed when PKCE is used with public clients. | No |
-| **redirectUri** | The callback URL to which the authorization server redirects after successful authentication. This must match the URL configured in the application. | Yes |
-| **isPkceEnabled** | Indicates whether PKCE (Proof Key for Code Exchange) is enabled.<br/><br/>- `true`: Recommended for public clients and should be enabled if PKCE is configured in the Asgardeo application.<br/>- `false`: Used with confidential clients that use a client secret. | Yes |
-| **scopes** | A list of permissions requested by the agent. These define the resources the agent can access.<br/><br/>If the tool does not define specific scopes, these scopes are used when generating the access token. | Yes |
-| **secureSocket** | Configuration for SSL/TLS settings when communicating with secure endpoints. | No |
+| **baseAuthUrl** | Yes | The base URL of the authorization server. This is used to initiate OAuth 2.0 flows such as token generation and authorization.<br/><br/>Example: `https://api.asgardeo.io/t/{tenant}/oauth2` |
+| **clientId** | Yes | The unique identifier of the application registered in the authorization server. This is used to identify the agent during authentication. |
+| **clientSecret** | No | The secret associated with the client ID. It is used to authenticate the client when requesting tokens.<br/><br/>Required only for confidential clients and not needed when PKCE is used with public clients. |
+| **redirectUri** | Yes | The callback URL to which the authorization server redirects after successful authentication. This must match the URL configured in the application. |
+| **isPkceEnabled** | Yes | Indicates whether PKCE (Proof Key for Code Exchange) is enabled.<br/><br/>- `true`: Recommended for public clients and should be enabled if PKCE is configured in the Asgardeo application.<br/>- `false`: Used with confidential clients that use a client secret. |
+| **scopes** | Yes | A list of permissions requested by the agent. These define the resources the agent can access.<br/><br/>If the tool does not define specific scopes, these scopes are used when generating the access token. |
+| **secureSocket** | No | Configuration for SSL/TLS settings when communicating with secure endpoints. |
       
 3. Click **Save**.
 

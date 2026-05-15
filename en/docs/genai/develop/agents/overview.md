@@ -8,18 +8,6 @@ description: Reference for AI Agents in WSO2 Integrator — the AI Chat Agent Wi
 
 AI agents are software components that use large language models (LLMs) to understand requests, make decisions, and perform actions autonomously. They can interact with users, invoke tools, access external systems, and maintain conversation context to complete tasks.
 
-There are two main types of AI agents in WSO2 Integrator:
-
-## Chat agents
-
-Chat agents are exposed through HTTP endpoints as REST APIs and are designed to interact with users or external systems. These agents are ideal for chatbot-like experiences, where users can submit questions or commands and receive intelligent responses powered by an LLM.
-
-## Inline agents
-
-Inline agents are embedded within service logic, such as REST APIs or GraphQL resolvers, and are invoked programmatically as part of backend workflows. These agents are ideal for automation, enrichment, and dynamic processing tasks within services or business logic.
-
-Both Chat and Inline agents can be extended with tools that connect to real-world systems through WSO2 Integrator’s built-in connectors. Agents can integrate with services such as Gmail, Google Calendar, databases, or custom APIs, enabling them to perform actions beyond reasoning, such as reading emails, sending messages, creating events, or retrieving records.
-
 ## Components of an AI agent
 
 An AI agent is composed of four core components that enable reasoning, action execution, and context management.

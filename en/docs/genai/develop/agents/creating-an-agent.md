@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Creating an Agent
-description: Reference for the AI Chat Agent Wizard in WSO2 Integrator, including agent services, listeners, roles, instructions, query bindings, and response handling.
+description: Learn how to create and configure Chat agents and Inline agents in WSO2 Integrator.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,22 @@ import TabItem from '@theme/TabItem';
 
 # Creating an Agent
 
-WSO2 Integrator provides a streamlined way to create AI-powered agents using the **AI Chat Agent Wizard**. The wizard scaffolds the required integration artifacts in a single step and opens the visual flow editor, allowing you to configure and customize agent behavior directly from the canvas.
+WSO2 Integrator supports the creation of two types of AI agents:
 
-The AI Agent node acts as the core execution component. It enables the agent to interact with external systems, invoke tools, maintain conversational context, and coordinate multi-step reasoning workflows.
+- Chat agents
+- Inline agents
+
+## Chat agents
+
+These are exposed through HTTP endpoints as REST APIs and are designed for conversational interactions with users or external systems. They are ideal for chatbot-style experiences where users can send prompts, questions, or commands and receive intelligent responses powered by large language models (LLMs).
+
+## Inline agents
+
+These are embedded directly within integration flows, REST APIs, GraphQL resolvers, or backend service logic. They are invoked programmatically as part of workflow execution and are ideal for automation, enrichment, summarization, classification, and other AI-driven processing tasks.
+
+Both agent types can be extended using tools and connectors provided by WSO2 Integrator. This enables them to interact with external systems such as Gmail, Google Calendar, databases, and custom APIs, allowing them to perform real-world actions in addition to generating intelligent responses.
+
+You can create either type of agent depending on your integration requirement.
 
 ## Launching the wizard
 
@@ -21,7 +34,7 @@ The AI Agent node acts as the core execution component. It enables the agent to 
 
 ![Artifacts page in WSO2 Integrator showing all artifact categories.](/img/genai/develop/shared/07-artifacts-page-full.png)
 
-## Chat agent
+## Create a chat agent
 
 Under **AI Integration**, select **AI Chat Agent**. The wizard initially displays a single input field. The **Create** button remains disabled until a valid agent name is provided.
 
@@ -37,15 +50,15 @@ After clicking **Create**, WSO2 Integrator generates the required integration ar
 
 When the wizard completes, WSO2 Integrator automatically generates the following:
 
-- An AI agent service
+- An HTTP service
 - A listener endpoint
-- An AI Agent node
+- An AI agent node
 - An integration flow that handles incoming requests and generates responses
 
 <Tabs>
 <TabItem value="ui" label="Visual Designer" default>
 
-![The AI Agent canvas showing Start, an AI Agent node with the agent name and an Add Memory button, and a Return node.](/img/genai/develop/agents/02-agent-flow-canvas.png)
+![The AI agent canvas showing Start, an AI agent node with the agent name and an Add Memory button, and a Return node.](/img/genai/develop/agents/02-agent-flow-canvas.png)
 
 </TabItem>
 
@@ -96,16 +109,18 @@ service /blogReviewer on chatAgentListener {
 </TabItem>
 </Tabs>
 
-## Inline agent
+## Create an inline agent
 
-1. Under **Automation**, select **Automation** and click **Create**.
+You can add an inline agent within integration flows, REST APIs, GraphQL resolvers, or backend service logic.
+
+1. Create or open an existing integration flow.
 2. Click the **+** button in the flow to open the side panel.
 3. Under the **AI** section, click **Agent**, then click **+ Add Agent** to open the agent creation panel.
 
 ![Agent creation form](/img/genai/develop/agents/39-agent-creation-form.png)
 
 4. Configure the **Role** and **Instructions** fields to define the agent’s behavior.
-5. Switch the **Query** field from `Text` mode to `Expression` mode, and provide the `query` parameter as the input. 
+5. Switch the **Query** field from `Text` mode to `Expression` mode, and provide the `query` parameter as the input.
 6. Click **Save**.
 
 <Tabs>
@@ -161,27 +176,26 @@ After generation, you are directed to the integration canvas where you can confi
 
 ## Configure agent behavior
 
-Use the AI Agent node configuration panel to customize how the agent behaves and responds to requests.
+Use the AI agent node configuration panel to customize how the agent behaves and responds to requests.
 
 Click the `AI Agent` node to open the configuration panel and update the following configurations.
 
-| Section | Description |
-|---|---|
-| **Role** | Defines the primary responsibility or persona of the agent. |
-| **Instructions** | Specifies the behavior guidelines and operational instructions that the agent should follow while responding. |
-| **Advanced Configuration** | Provides additional runtime and execution settings for the agent. |
-| **Result** | Defines the output or response generated by the agent after execution. |
-
+| Section | Required | Description |
+|---|---|---|
+| **Role** | Yes | Defines the primary responsibility or persona of the agent. |
+| **Instructions** | Yes | Specifies the behavior guidelines and operational instructions that the agent should follow while responding. |
+| **Advanced Configuration** | No | Provides additional runtime and execution settings for the agent. |
+| **Result** | Yes | Defines the output or response generated by the agent after execution. |
 ### Advanced configuration
 
-| Section | Description |
-|---|---|
-| **Maximum Iterations** | Defines the maximum number of reasoning or execution cycles the agent can perform before returning a response. |
-| **Verbose** | Enables detailed execution logs and intermediate reasoning information for debugging and observability purposes. |
-| **Tool Loading Strategy** | Determines how tools are discovered and loaded by the agent during execution. |
-| **Agent Credential** | Configures the credentials or authentication details used by the agent when accessing external systems or tools. |
-| **Context** | Defines contextual information that is passed to the agent during execution. |
-| **Type Descriptor** | Specifies the expected structure or type information for agent inputs and outputs. |
+| Section | Required | Description |
+|---|---|---|
+| **Maximum Iterations** | No | Defines the maximum number of reasoning or execution cycles the agent can perform before returning a response. |
+| **Verbose** | No | Enables detailed execution logs and intermediate reasoning information for debugging and observability purposes. |
+| **Tool Loading Strategy** | No | Determines how tools are discovered and loaded by the agent during execution. |
+| **Agent Credential** | No | Configures the credentials or authentication details used by the agent when accessing external systems or tools. |
+| **Context** | No | Defines contextual information that is passed to the agent during execution. |
+| **Type Descriptor** | No | Specifies the expected structure or type information for agent inputs and outputs. |
 
 ## What's next
 
