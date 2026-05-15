@@ -23,7 +23,7 @@ This separation enables secure agent authentication while allowing tools to inde
 
 With this model, only authenticated agents with the required permissions can invoke protected tools and resources.
 
-## Add credential to agent
+## Add credentials to agents
 
 1. In the visual designer, click on your **Agent** to open the configuration form. Then, go to **Advanced Configuration** and expand it.
 
