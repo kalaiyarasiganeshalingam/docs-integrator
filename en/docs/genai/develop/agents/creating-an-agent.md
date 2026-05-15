@@ -19,15 +19,13 @@ The AI Agent node acts as the core execution component. It enables the agent to 
 2. Click **+ Add Artifact** from the project view, or right-click the project tree.
 3. The **Artifacts** page opens.
 
-![Artifacts page in WSO2 Integrator showing all artifact categories — Automation, AI Integration (AI Chat Agent, MCP Service), Integration as API (HTTP Service, GraphQL Service Beta, TCP Service Beta), Event Integration (Kafka, RabbitMQ, MQTT, Azure Service Bus, Salesforce, Twilio, GitHub, Solace, CDC for Microsoft SQL Server, CDC for PostgreSQL).](/img/genai/develop/shared/07-artifacts-page-full.png)
+![Artifacts page in WSO2 Integrator showing all artifact categories.](/img/genai/develop/shared/07-artifacts-page-full.png)
 
-4. Under **AI Integration**, select **AI Chat Agent**.
+## Chat agent
 
-## Create an agent
+Under **AI Integration**, select **AI Chat Agent**. The wizard initially displays a single input field. The **Create** button remains disabled until a valid agent name is provided.
 
-The wizard initially displays a single input field. The **Create** button remains disabled until a valid agent name is provided.
-
-![The empty AI Chat Agent wizard with a Name field and a disabled Create button. The placeholder shows example names: Customer Support Assistant, Sales Advisor, Data Analyst.](/img/genai/develop/agents/01-create-ai-chat-agent-wizard.png)
+![The empty AI Chat Agent wizard with a Name field and a disabled Create button.](/img/genai/develop/agents/01-create-ai-chat-agent-wizard.png)
 
 | Field | Required | Description |
 |---|---|---|
@@ -94,6 +92,62 @@ service /blogReviewer on chatAgentListener {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
+
+## Inline agent
+
+1. Under **Automation**, select **Automation** and click **Create**.
+2. Click the **+** button in the flow to open the side panel.
+3. Under the **AI** section, click **Agent**, then click **+ Add Agent** to open the agent creation panel.
+
+![Agent creation form](/img/genai/develop/agents/39-agent-creation-form.png)
+
+4. Configure the **Role** and **Instructions** fields to define the agent’s behavior.
+5. Switch the **Query** field from `Text` mode to `Expression` mode, and provide the `query` parameter as the input. 
+6. Click **Save**.
+
+<Tabs>
+<TabItem value="ui" label="Visual Designer" default>
+
+![Agent creation form](/img/genai/develop/agents/40-agent.png)
+
+</TabItem>
+
+<TabItem value="code" label="Ballerina Code">
+
+```ballerina
+import ballerina/ai;
+import ballerina/log;
+
+// Default model provider
+final ai:Wso2ModelProvider aiWso2modelprovider =
+    check ai:getDefaultModelProvider();
+
+// Agent declaration
+final ai:Agent aiAgent = check new (
+    systemPrompt = {
+        role: string `Task Assistant`,
+        instructions: string `You are a helpful assistant for
+            managing a to-do list. You can manage tasks and
+            help users plan their schedules.`
+    },
+    model = aiWso2modelprovider
+);
+
+// Main
+public function main() returns error? {
+    do {
+        string query = "Hi";
+        string stringResult = check aiAgent.run(string `${query}`);
+    } on fail error e {
+        log:printError("Error occurred", 'error = e);
+        return e;
+    }
+}
+```
+
 </TabItem>
 </Tabs>
 
@@ -133,5 +187,6 @@ Click the `AI Agent` node to open the configuration panel and update the followi
 
 - **[Tools](tools.md)** - Add tools and integrations to the agent.
 - **[Memory](memory.md)** - Configure conversational and persistent memory.
+- **[Identity & access management](identity-and-access-management.md)** - Secure agents, tools, and integrations using authentication and authorization.
 - **[Observability](observability.md)** - Monitor traces, logs, and execution details.
 - **[Evaluations](evaluations/overview.md)** - Test and evaluate agent behavior and response quality.
