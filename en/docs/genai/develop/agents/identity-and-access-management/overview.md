@@ -9,7 +9,7 @@ keywords: [wso2 integrator, ai agent, identity, access control, oauth2, authoriz
 
 AI agents interact with MCP servers, APIs, databases, and enterprise systems to perform tasks autonomously. As agents gain access to enterprise resources and external services, it becomes essential to secure and govern these interactions through proper identity and access control mechanisms.
 
-WSO2 Integrator provides built-in support for securing agents, tools, and service integrations using authentication and authorization standards such as OAuth 2.0. In WSO2 platforms, agents are treated as first-class identities, allowing organizations to manage agent access in a secure, controlled, and traceable manner.
+WSO2 Integrator provides built-in support for securing agents, tools, and service integrations using authentication and authorization standards such as OAuth 2.0. In the WSO2 platform, agents are treated as first-class identities, allowing organizations to manage agent access in a secure, controlled, and traceable manner.
 
 With Identity and Access Control, you can:
 
