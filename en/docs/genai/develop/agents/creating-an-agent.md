@@ -16,15 +16,13 @@ WSO2 Integrator supports the creation of two types of AI agents:
 
 ## Chat agents
 
-These are exposed through HTTP endpoints as REST APIs and are designed for conversational interactions with users or external systems. They are ideal for chatbot-style experiences where users can send prompts, questions, or commands and receive intelligent responses powered by large language models (LLMs).
+Chat agents provide a chat-based interface for agents through HTTP REST APIs. They enable conversational interactions where users or external systems can send prompts, questions, or commands and receive intelligent responses powered by large language models (LLMs).
 
 ## Inline agents
 
 These are embedded directly within integration flows, REST APIs, GraphQL resolvers, or backend service logic. They are invoked programmatically as part of workflow execution and are ideal for automation, enrichment, summarization, classification, and other AI-driven processing tasks.
 
 Both agent types can be extended using tools and connectors provided by WSO2 Integrator. This enables them to interact with external systems such as Gmail, Google Calendar, databases, and custom APIs, allowing them to perform real-world actions in addition to generating intelligent responses.
-
-You can create either type of agent depending on your integration requirement.
 
 ## Launching the wizard
 
