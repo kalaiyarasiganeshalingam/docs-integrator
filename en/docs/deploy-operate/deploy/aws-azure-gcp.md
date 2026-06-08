@@ -279,6 +279,5 @@ For non-Kubernetes environments (ECS, VM-based), use cloud-native service discov
 
 ## What's next
 
-- [Run Locally](run-locally.md) -- Develop and test before deploying
-- [Deploy to Devant](devant-ipaas.md) -- Deploy to the WSO2 managed cloud
+- [Local and VM deployment](../../deploy/self-hosted/local-and-vm-deployment.md) -- Develop and test before deploying
 - [Scaling & High Availability](scaling-high-availability.md) -- Configure scaling and resilience
