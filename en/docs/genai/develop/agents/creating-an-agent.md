@@ -9,15 +9,15 @@ import TabItem from '@theme/TabItem';
 
 # Creating an Agent
 
-Reference for the AI Chat Agent Wizard in WSO2 Integrator, including agent services, listeners, roles, instructions, query bindings, and response handling.
+WSO2 Integrator supports the creation of AI agents as either **Chat agents** or **Inline agents**.
 
 ## Chat agents
 
-Reference for the AI Chat Agent Wizard in WSO2 Integrator, including agent services, listeners, roles, instructions, query bindings, and response handling.
+Chat agents are AI agents exposed through HTTP REST APIs, allowing users or external systems to send prompts and receive responses powered by large language models (LLMs).
 
 ## Inline agents
 
-Reference for the AI Chat Agent Wizard in WSO2 Integrator, including agent services, listeners, roles, instructions, query bindings, and response handling.
+Inline agents can be embedded directly within integration flows, REST APIs, GraphQL resolvers, or backend service logic, and are invoked programmatically as part of workflow execution.
 
 ## Launching the wizard
 
@@ -106,8 +106,8 @@ service /blogReviewer on chatAgentListener {
 You can add an inline agent within integration flows, REST APIs, GraphQL resolvers, or backend service logic.
 
 1. Create or open an existing integration flow.
-2. Click the **+** button in the flow to open the side panel.
-3. Under the **AI** section, click **Agent**, then click **+ Add Agent** to open the agent creation panel.
+2. In the editor, open the **AI** section in the side panel and select **Agent**.
+3. Click **+ Add Agent** to open the agent creation panel.
 
 ![Agent creation form](/img/genai/develop/agents/39-agent-creation-form.png)
 
